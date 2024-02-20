@@ -14,7 +14,7 @@ print(f"\n\nFor confirmation, your name's {usr_name}, with a height of {usr_heig
 
 bmi = round(float(usr_weight) / (float(usr_height)**2),2)
 
-print(f"\nAccording with the data, your Body Mass Index's {bmi}: ")
+print(f"\nAccording with the data, your Body Mass Index's {bmi}.")
 
 if 0 < bmi < 18.5:
     print("You are underweight.")
