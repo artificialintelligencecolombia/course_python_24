@@ -16,11 +16,11 @@ bmi = round(float(usr_weight) / (float(usr_height)**2),2)
 
 print(f"\nAccording with the data, your Body Mass Index's {bmi}.")
 
-if 0 < bmi < 18.5:
+if 0 < bmi <= 18.5:
     print("You are underweight.")
-elif 18.5 < bmi < 24.9:
+elif 18.5 < bmi <= 25:
     print("You are in normal weight.")
-elif 25 < bmi < 29.9:
+elif 25 < bmi <= 29.9:
     print("You are overwight.")
 else:
     print("You have obesity")
