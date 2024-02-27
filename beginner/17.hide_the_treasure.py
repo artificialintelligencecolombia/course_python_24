@@ -15,7 +15,6 @@ line_1 = [" "," "," "]
 line_2 = [" "," "," "]
 map = [line_0, line_1, line_2]
 letters = ["a","b","c"]
-letter_index = 0
 
 # User enters the position
 print("\n\nWELCOME TO 'HIDE THE TREASURE'\n")
