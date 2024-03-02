@@ -7,7 +7,7 @@ max_number = int(input('Enter the maximun number: '))
 
 # Iterate through numbers from 0 to max_number and sum the even ones
 even_sum = 0
-for number in range(0,max_number):
+for number in range(0,max_number+1,2): # It takes steps of 2 (starting from 0)
     even_sum += number
 
 # Display the result
