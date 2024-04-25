@@ -12,14 +12,17 @@ print("You will guess who has the highest number of followers.")
 
 # Create a function that picks randomly each participant from the dataset
 def pick_account():
+    """Randomly pick an account from the dataset."""
     profile = ig_profiles[random.randint(0, len(ig_profiles) - 1)] # '-1' due to the dictionary indexing
     return profile
 
 # Create a function that prints the information for each confronted participant
 def display_information(account):
+    """Print information about the given Instagram account."""
     print(f"{account['name']}, a {account['description']} account, from {account['country']}.")
 
 def game():    
+    """Play the Higher or Lower game."""
     # Initial set up
     account_a = pick_account()
     account_b = pick_account()
@@ -49,12 +52,13 @@ def game():
             print(f"Sorry, that's wrong. Final score: {score}.\n")
         
         # Prepare for next round   
-        account_a = account_b
-        account_b = pick_account()
         
         # Ensure the account does not confront itself in the immediate next round by reassigning if identical
-        if account_a == account_b:
+        account_a = account_b
+        while True:
             account_b = pick_account()
+            if account_a != account_b:
+                break
 
 if __name__ == "__main__":
     game()
