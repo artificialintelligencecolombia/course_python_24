@@ -1,0 +1,22 @@
+ig_profiles = [
+    {'name': 'TravelWorld', 'follower_count': 120000, 'description': 'Travel Inspiration', 'country': 'Global'},
+    {'name': 'JohnDoeArt', 'follower_count': 85000, 'description': 'Contemporary Artist', 'country': 'USA'},
+    {'name': 'ChefElla', 'follower_count': 95000, 'description': 'Professional Chef', 'country': 'France'},
+    {'name': 'TheFashionHub', 'follower_count': 110000, 'description': 'Fashion Trends', 'country': 'Italy'},
+    {'name': 'TechGuru', 'follower_count': 200000, 'description': 'Technology Influencer', 'country': 'South Korea'},
+    {'name': 'JaneSmithFitness', 'follower_count': 98000, 'description': 'Fitness Coach', 'country': 'Australia'},
+    {'name': 'EcoSavvy', 'follower_count': 75000, 'description': 'Eco-friendly Lifestyle', 'country': 'Canada'},
+    {'name': 'MovieMania', 'follower_count': 143000, 'description': 'Film Critic', 'country': 'UK'},
+    {'name': 'PetLovers', 'follower_count': 64000, 'description': 'Animal Care', 'country': 'Global'},
+    {'name': 'MusicMatters', 'follower_count': 137000, 'description': 'Music News & Reviews', 'country': 'USA'},
+    {'name': 'ComicFanZone', 'follower_count': 128000, 'description': 'Comics and Animation', 'country': 'Japan'},
+    {'name': 'GamerStream', 'follower_count': 210000, 'description': 'Gaming Videos', 'country': 'USA'},
+    {'name': 'HealthyEats', 'follower_count': 152000, 'description': 'Nutrition & Health', 'country': 'Brazil'},
+    {'name': 'YogaSpirit', 'follower_count': 116000, 'description': 'Yoga Instructor', 'country': 'India'},
+    {'name': 'BookWorm', 'follower_count': 88000, 'description': 'Book Reviews', 'country': 'Ireland'},
+    {'name': 'SpaceExplorer', 'follower_count': 101000, 'description': 'Astronomy Enthusiast', 'country': 'USA'},
+    {'name': 'DIYCrafts', 'follower_count': 119000, 'description': 'Crafting & DIY Projects', 'country': 'USA'},
+    {'name': 'SoccerStar', 'follower_count': 220000, 'description': 'Professional Soccer Player', 'country': 'Brazil'},
+    {'name': 'GlobalNews', 'follower_count': 50000, 'description': 'World News', 'country': 'Global'},
+    {'name': 'VeganLife', 'follower_count': 108000, 'description': 'Vegan Recipes & Lifestyle', 'country': 'Germany'}
+]
