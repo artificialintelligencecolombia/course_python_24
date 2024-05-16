@@ -1,0 +1,60 @@
+==============================
+VIRTUAL ENVIRONMENT CREATION
+==============================
+
+---------------------
+Fundamentals
+---------------------
+
+1. It's different to manage the venv in a CLI such as CMD or
+powershell.
+
+2. The executable to activate the venv depends on the machine
+and CLI we're on.
+
+3. Commands: 
+- pip list
+# Lists all the the installed pacakges
+
+- pip --version
+- python version
+# cmd Commands
+
+- dir 
+# lists all the files and folders of the cwd.
+
+- cd 
+# Changes the cwd.
+
+- python -m venv my_env
+# Creates the whole venv folder and files.
+
+- path\to\env\Scripts\activate.bat
+# Activate virtual environment on Windows!!!
+
+- pip install package_name
+
+- pip deactivate.bat
+
+
+---------------------
+Beautiful Soup
+---------------------
+
+- pip install beautifulsoup4
+# bs4
+
+---------------------
+VS CODE
+---------------------
+
+Option 1:
+1. Open new terminal in vs code.
+2. .\myenv\Scripts\activate
+
+Option 2:
+1. Ctrl+Shift+P
+2. Type: Python: Select Interpreter.
+3. VS Code will display a list of available interpreters.
+Select the interpreter that is located inside your myenv 
+directory. 
