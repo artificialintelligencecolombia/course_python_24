@@ -1,0 +1,47 @@
+Level 1 Practice Project: Simple Data Analysis Tool
+Project Objective: Create a simple data analysis tool that reads a CSV file, performs basic data manipulations, and outputs summary statistics.
+
+Guidelines:
+Project Setup:
+- Create a new Python project directory.
+- Ensure you have the necessary libraries installed: pandas.
+
+Define Classes:
+1. DataSet Class:
+   - Attributes: file_path, data.
+   - Methods: load_data(), get_summary_statistics().
+
+2. DataAnalyzer Class:
+   - Attributes: data_set.
+   - Methods: display_summary_statistics(), perform_basic_analysis().
+
+Class: DataSet
+- Attributes:
+  - file_path: String attribute to store the path to the CSV file.
+  - data: DataFrame to store the loaded data.
+- Methods:
+  - load_data(): Loads the data from the CSV file into the data attribute using pandas.
+  - get_summary_statistics(): Returns basic statistics (mean, median, mode, etc.) of the DataFrame.
+
+Class: DataAnalyzer
+- Attributes:
+  - data_set: Instance of DataSet class.
+- Methods:
+  - display_summary_statistics(): Prints the summary statistics returned by DataSet.
+  - perform_basic_analysis(): Perform and print some basic analysis like finding the maximum, minimum values, etc.
+
+Tips and Tricks:
+- Pandas Basics: Familiarize yourself with basic pandas operations such as reading a CSV file, computing summary statistics, and handling DataFrames.
+- Class Design: Keep your classes focused on a single responsibility. DataSet should handle data loading and storage, while DataAnalyzer should handle analysis and display.
+- Error Handling: Add basic error handling for file loading to manage cases where the file path is incorrect.
+- Modular Code: Write modular code by separating different functionalities into methods and classes to make the code more maintainable and readable.
+- Testing: Test your methods individually to ensure they work as expected before integrating them into the main project workflow.
+
+Workflow:
+1. Create the DataSet class and implement the load_data() method.
+2. Test the load_data() method to ensure it correctly reads the CSV file.
+3. Implement the get_summary_statistics() method in the DataSet class.
+4. Create the DataAnalyzer class and implement the display_summary_statistics() method.
+5. Test the display_summary_statistics() method with a sample CSV file.
+6. Implement the perform_basic_analysis() method in the DataAnalyzer class.
+7. Integrate and test the entire workflow.

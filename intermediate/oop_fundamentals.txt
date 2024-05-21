@@ -1,0 +1,28 @@
+==============================
+OOP
+==============================
+
+---------------------
+Fundamentals
+---------------------
+
+1. Consists into split a program into modules. This allow reusability.
+2. OOP allows a group of programmers to work in the same project with one team member per module.
+
+
+Elements of OOP
+---------------------
+
+Object: Its an element composed by:
+-	Attributes: variables that belong to the obj. They store the state or data of the obj. Attrs can be accessed by using 'Obj.attr' notation.
+
+-	Methods: Fns that belong to the obj. Define the behavior of the obj and ca maniputale its attrs. Takes 'self' as first instance to refer to the instance of the Obj.
+
+
+---------------------
+Construction of the Obj
+---------------------
+
+obj_name = ObjBlueprint()
+ej: car = CarClass()
+

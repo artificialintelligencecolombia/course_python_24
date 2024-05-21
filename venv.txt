@@ -37,24 +37,12 @@ and CLI we're on.
 - pip deactivate.bat
 
 
----------------------
-Beautiful Soup
----------------------
+-----------------
+Quotes or Highlights
+-----------------
 
-- pip install beautifulsoup4
-# bs4
+> "This is a quote from someone notable."
 
----------------------
-VS CODE
----------------------
-
-Option 1:
-1. Open new terminal in vs code.
-2. .\myenv\Scripts\activate
-
-Option 2:
-1. Ctrl+Shift+P
-2. Type: Python: Select Interpreter.
-3. VS Code will display a list of available interpreters.
-Select the interpreter that is located inside your myenv 
-directory. 
+-----------------
+End of Document
+-----------------
