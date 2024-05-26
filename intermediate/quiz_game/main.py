@@ -21,5 +21,5 @@ for question in question_data:
     
 # Create a quiz obj from the QuizBrain class
 quizz = QuizBrain(question_bank2)
-# Call the quizz obj method calles next_question
-quizz.next_question()
+
+quizz.still_has_questions()
