@@ -2,9 +2,9 @@
 #
 
 # import libraries from secondary scripts
-from coffee_machine_menu import MENU
-from coffee_machine_resources import inventory
-from coffee_machine_resources import profit
+from intermediate.coffee_machine_procedural.coffee_machine_menu import MENU
+from intermediate.coffee_machine_procedural.coffee_machine_resources import inventory
+from intermediate.coffee_machine_procedural.coffee_machine_resources import profit
 
 
 is_on = True # Loop's flag
