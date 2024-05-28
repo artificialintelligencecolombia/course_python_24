@@ -10,6 +10,7 @@ import random
 # Create the objects
 my_pen = Turtle() # turtle obj is the 'pen' that draw lines. 
 my_screen = Screen() # screen obj is the 'sheet' or canvas. Its the window.
+my_screen.colormode(255)
 my_pen.pensize(5) # Define the line's thickness
 my_pen.speed(0) # Define the speed of the line
 
@@ -23,7 +24,7 @@ def move_turtle_randomly(steps):
         direction = random.choice(directions)
         
         # Generates a random color for each step
-        my_pen.pencolor((random.random(), random.random(), random.random()))
+        my_pen.pencolor((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
         
         # Turn the turtle to the chosen direction
         my_pen.setheading(direction)
