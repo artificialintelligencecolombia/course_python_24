@@ -1,0 +1,33 @@
+==============================
+SNAKE GAME
+==============================
+
+---------------------
+Project steps
+---------------------
+
+1. Create the snake body -> Tts composed of 3 squares, lined to each other. ok
+2. Move the snake.
+3. Control the snake acroos the screen.
+4. Detect collision with food.
+5. Create a scoreboard.
+6. Detect colission with wall.
+7. Detect collision with tail.
+
+
+Elements of OOP
+---------------------
+
+Object: Its an element composed by:
+-	Attributes: variables that belong to the obj. They store the state or data of the obj. Attrs can be accessed by using 'Obj.attr' notation.
+
+-	Methods: Fns that belong to the obj. Define the behavior of the obj and ca maniputale its attrs. Takes 'self' as first instance to refer to the instance of the Obj.
+
+
+---------------------
+Construction of the Obj
+---------------------
+
+obj_name = ObjBlueprint()
+ej: car = CarClass()
+
