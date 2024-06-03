@@ -9,6 +9,7 @@ import random
 my_pen = Turtle() # turtle obj is the 'pen' that draw lines. 
 my_screen = Screen() # screen obj is the 'sheet' or canvas. Its the window.
 my_screen.colormode(255) # Color mode
+my_pen.speed(0)
 
 
 
