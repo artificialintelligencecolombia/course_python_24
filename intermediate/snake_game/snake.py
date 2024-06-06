@@ -34,16 +34,20 @@ class Snake():
             new_y = self.snake_body[segment-1].ycor()
             # Move the current segment to the position of the previous segment
             self.snake_body[segment].goto(new_x,new_y) 
-        self.snake_body[0].forward(20)
+        self.snake_body[0].forward(DISTANCE)
         
     def move_up(self):
-        self.snake_body[0].setheading(UP)
+        if self.snake_body[0].heading() != DOWN:
+            self.snake_body[0].setheading(UP)
         
     def move_down(self):
-        self.snake_body[0].setheading(DOWN)
+        if self.snake_body[0].heading() != UP:
+            self.snake_body[0].setheading(DOWN)
     
     def move_left(self):
-        self.snake_body[0].setheading(LEFT)
+        if self.snake_body[0].heading() != RIGHT:
+            self.snake_body[0].setheading(LEFT)
     
     def move_right(self):
-        self.snake_body[0].setheading(RIGHT)   
+        if self.snake_body[0].heading() != LEFT:
+            self.snake_body[0].setheading(RIGHT)   
