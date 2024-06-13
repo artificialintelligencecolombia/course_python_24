@@ -1,6 +1,7 @@
 # Turtle is a python library for drawing shapes and patterns
 from turtle import Turtle, Screen
 from snake import Snake 
+from food import Food 
 import time
 import random
 
@@ -11,8 +12,9 @@ my_screen.bgcolor("black")
 my_screen.title("My snake game")
 my_screen.tracer(0) # Disables automatic screen updates. Give us manual control
 
-# Create the snake
+# Create the snake & food
 snake = Snake()
+food = Food()
 
 # Enable key event listening and binding arrow keys to the snake's move_ methods
 my_screen.listen()
