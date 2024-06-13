@@ -31,6 +31,10 @@ while game_is_on:
     my_screen.update() # Update the screen manually
     time.sleep(0.1) # Pause the execution for 0.1 seconds to control the game speed
     snake.move() # Move the snake
+    
+    # Detect when snake collisions with food
+    if snake.snake_body[0].distance(food) < 15:
+        food.refresh()
      
 # Close the window on click
 my_screen.exitonclick()
