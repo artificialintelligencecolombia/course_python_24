@@ -35,6 +35,15 @@ class Snake():
             # Move the current segment to the position of the previous segment
             self.snake_body[segment].goto(new_x,new_y) 
         self.snake_body[0].forward(DISTANCE)
+    
+    # Create the method that extends the snake tail
+    def extend(self):
+            new_turtle = Turtle()
+            new_turtle.shape("square") 
+            new_turtle.color("white") # Those are all the turtle's settings.
+            new_turtle.speed("fastest")
+            new_turtle.penup() # Prevent the turtle from drawing when moving
+            self.snake_body.append(new_turtle)  
         
     def move_up(self):
         if self.snake_body[0].heading() != DOWN:
