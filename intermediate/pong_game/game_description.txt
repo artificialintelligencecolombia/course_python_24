@@ -1,0 +1,25 @@
+==============================
+PONG GAME
+==============================
+
+---------------------
+Breakdown the problem
+---------------------
+
+1. Define the components of the game and which ones might fit in its own class.
+
+Game components 
+---------------------
+
+Ex: daniel
+User's racket | Opponent racket | Ball | Scoreboard
+
+Ex: correct
+1. Create the screen
+2. Create and move the paddle
+3. Create the second paddle
+4. Create the ball and make it move
+5. Detect collision with wall and bounce
+6. Detect collision with paddle
+7. Detect when paddle misses
+8. Keep score
