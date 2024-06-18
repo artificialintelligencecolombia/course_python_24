@@ -15,7 +15,7 @@ Ex: daniel
 User's racket | Opponent racket | Ball | Scoreboard
 
 Ex: correct
-1. Create the screen
+1. Create the screen OK
 2. Create and move the paddle
 3. Create the second paddle
 4. Create the ball and make it move
