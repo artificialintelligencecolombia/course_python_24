@@ -7,7 +7,7 @@ class Ball(Turtle):
     def __init__(self):
         # Call the constructor of the parent class (Turtle)
         super().__init__()
-        self.speed(1)  # Set the speed of animation
+        self.speed(6)  # Set the speed of animation
         self.shape("circle") # Sets the shape of the Ball object to a circle. Using 'self' to set properties on the current instance.
         self.color("white")
         self.penup()  # Make sure the ball doesn't draw when it moves

@@ -4,39 +4,51 @@ from paddle import Paddle
 from ball import Ball
 
 # Constants
-USR_PADDLE_POSITION_X = -380
+LEFT_POSITION_X = -380
+RIGHT_POSITION_X = 380
 
-# Set up the screen
+# Screen set up
 screen = Screen()
 screen.title("Pong Game")
 screen.bgcolor("black")
 screen.setup(width=800, height=600)
-# screen.tracer(0)  # Stops the window from updating automatically
+screen.tracer(0)  # Stops the window from updating automatically
 
 # Create the paddles & ball 
-usr_paddle = Paddle((USR_PADDLE_POSITION_X,0)) # Left paddle at (-380, 0)
-second_paddle = Paddle((-USR_PADDLE_POSITION_X,0)) # Right paddle at (380, 0)
+left_paddle = Paddle((LEFT_POSITION_X,0)) # Left paddle at (-380, 0)
+right_paddle = Paddle((RIGHT_POSITION_X,0)) # Right paddle at (380, 0)
 ball = Ball()
 
-# Enable key event listening 
+# Event binding for paddle movement 
 screen.listen()
 
 # Binding arrow keys to the usr paddle's move_ methods
-screen.onkey(usr_paddle.move_up, "w")
-screen.onkey(usr_paddle.move_down, "s") 
-screen.onkey(second_paddle.move_up, "Up")
-screen.onkey(second_paddle.move_down, "Down") 
+screen.onkey(left_paddle.move_up, "w")
+screen.onkey(left_paddle.move_down, "s") 
+screen.onkey(right_paddle.move_up, "Up")
+screen.onkey(right_paddle.move_down, "Down") 
 
 # Create the token for the snake movement
 game_is_on = True
-# Main game loop
+
+# Game loop
 while game_is_on:
-    # screen.update()  # Manually update the screen 
+    screen.update()  # Manually update the screen 
     ball.move()
     
     # Detect collision with the wall
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.wall_bounce()
-
+        
+    # Detect collision with the paddles
+    if ball.distance(left_paddle.paddle) < 50 and ball.xcor() < -340:
+        ball.bounce_x()
+    
+    if ball.distance(right_paddle.paddle) < 50 and ball.xcor() > 340:
+        ball.bounce_x()
+    
+    if ball.xcor() > 360:
+        ball.reset_position()
+    
 # Close the window on click
 screen.exitonclick()
