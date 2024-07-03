@@ -21,5 +21,5 @@ class CarManager(Turtle):
         self.setpos(300, y_pos)
 
     # Create the function that moves the car
-    def move_car(self):
+    def drive(self):
         self.forward(STARTING_MOVE_DISTANCE)
