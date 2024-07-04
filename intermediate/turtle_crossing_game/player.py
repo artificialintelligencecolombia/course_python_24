@@ -17,3 +17,7 @@ class Player(Turtle):
     # Create the movement of the Player object
     def move(self):
         self.forward(MOVE_DISTANCE)
+    
+    # Restart to the initial position of the Player object
+    def level_up(self):
+        self.goto(STARTING_POSITION)

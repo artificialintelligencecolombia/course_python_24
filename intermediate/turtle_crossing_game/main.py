@@ -20,20 +20,6 @@ cars = []
 screen.listen()
 screen.onkey(player.move, "Up")
 
-# Detect collision through the function
-def is_collision(player_obj, car_obj):
-    # Calculate the bounding box for the player
-    player_x_min = player_obj.xcor() - 10  # Left edge of the player bounding box
-    player_x_max = player.xcor() + 10  # Right edge of the player bounding box
-    player_y_max = player_obj.ycor() + 10  # Top edge of the player bounding box
-    player_y_min = player_obj.ycor() - 10  # Bottom edge of the player bounding box
-    
-    # Calculate the bounding box for the car
-    car_x_min = car_obj.xcor() - 20  # Left edge of the car bounding box
-    car_x_max = car_obj.xcor() + 20  # Right edge of the car bounding box
-    car_y_max = car_obj.ycor() + 10  # Top edge of the car bounding box
-    car_y_min = car_obj.ycor() - 10  # Bottom edge of the car bounding box
-
 game_is_on = True
 loop_counter = 0
 
@@ -52,10 +38,15 @@ while game_is_on:
         car.drive()
           
         # Detect collision between turtle and cars
-        if player.distance(car) < 22:  # Adjust the distance threshold as needed
+        if player.distance(car) < 20:  # INCOMPLETE!! Adjust the distance threshold as needed
             print("Collision detected!")
             game_is_on = False
             break # Check if necessary
+    
+    #if player.ycor() > 250:
+    #    player.level_up()
+    #    for car in cars:
+     #       car.increase_speed()
     
     loop_counter += 1
     

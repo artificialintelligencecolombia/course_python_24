@@ -4,7 +4,7 @@ import random
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
-
+SPEED_VALUES = [1, 2, 3]
 
 class CarManager(Turtle):
     def __init__(self):
@@ -19,7 +19,13 @@ class CarManager(Turtle):
         random_color = COLORS[random.randint(0, len(COLORS) - 1)]
         self.color(random_color)
         self.setpos(300, y_pos)
-
+        self.speed = random.randint(0,len(SPEED_VALUES) + 1)
+        
     # Create the function that moves the car
     def drive(self):
-        self.forward(STARTING_MOVE_DISTANCE)
+        self.speed += STARTING_MOVE_DISTANCE
+        self.forward(self.speed)
+        
+    def increase_speed(self):
+        self.speed += MOVE_INCREMENT
+        self.forward(self.speed) 
