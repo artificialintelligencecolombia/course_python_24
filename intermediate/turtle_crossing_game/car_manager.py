@@ -14,11 +14,10 @@ class CarManager(Turtle):
         self.seth(180)
         self.penup()
         # Generate a y-coordinate in steps of 20 pixels within the range of -250 to 250
-        y_pos = random.choice(range(-250, 251, 20)) 
+        random_y_pos = random.choice(range(-250, 251, 20)) 
         # Generate a random color from the list for each car object created
-        random_color = COLORS[random.randint(0, len(COLORS) - 1)]
-        self.color(random_color)
-        self.setpos(300, y_pos)
+        self.color(random.choice(COLORS))
+        self.setpos(300, random_y_pos)
         self.speed = SPEED_VALUES[random.randint(0,len(SPEED_VALUES) - 1)]
         
     # Create the function that moves the car

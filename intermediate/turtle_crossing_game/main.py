@@ -33,20 +33,21 @@ while game_is_on:
         car = CarManager()
         cars.append(car)
     
-    # Manage the cars    
-    for car in cars:
-        car.drive()
-          
-        # Detect collision between turtle and cars
-        if player.distance(car) < 20:  # INCOMPLETE!! Adjust the distance threshold as needed
-            print("Collision detected!")
-            game_is_on = False
-            break # Check if necessary
-    
+    # Detect when the turtle reaches the other side
     if player.ycor() > 250:
         player.level_up()
         for car in cars:
             car.increase_speed()
+    
+    # Manage the cars    
+    for car in cars:
+        car.drive()
+        # Detect collision between turtle and cars
+        if player.distance(car) < 20:  # Update: The code is right according to the instructor
+            print("Collision detected!")
+            game_is_on = False 
+    
+    
     
     loop_counter += 1
     
