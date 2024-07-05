@@ -18,11 +18,11 @@ class CarManager(Turtle):
         # Generate a random color from the list for each car object created
         self.color(random.choice(COLORS))
         self.setpos(300, random_y_pos)
-        self.speed = SPEED_VALUES[random.randint(0,len(SPEED_VALUES) - 1)]
+        self.speed_value = SPEED_VALUES[random.randint(0,len(SPEED_VALUES) - 1)] 
         
     # Create the function that moves the car
     def drive(self):
-        self.forward(self.speed)
+        self.forward(self.speed_value)
         
     def increase_speed(self):
-        self.speed += MOVE_INCREMENT
+        self.speed_value += MOVE_INCREMENT

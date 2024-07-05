@@ -47,8 +47,6 @@ while game_is_on:
             print("Collision detected!")
             game_is_on = False 
     
-    
-    
     loop_counter += 1
     
 screen.exitonclick()
