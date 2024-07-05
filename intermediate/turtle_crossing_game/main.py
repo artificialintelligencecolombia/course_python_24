@@ -43,10 +43,10 @@ while game_is_on:
             game_is_on = False
             break # Check if necessary
     
-    #if player.ycor() > 250:
-    #    player.level_up()
-    #    for car in cars:
-     #       car.increase_speed()
+    if player.ycor() > 250:
+        player.level_up()
+        for car in cars:
+            car.increase_speed()
     
     loop_counter += 1
     
