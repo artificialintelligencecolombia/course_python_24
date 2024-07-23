@@ -23,21 +23,22 @@ writer.penup()
 writer.hideturtle()
 
 def guess_state():
-    global tkn # Bring the global variable into the function
     # -> USR INPUTS THE STATE NAME AND LIST FOR TRACKING THE GUESSED STATES
-    usr_input = screen.textinput(title=f'{len(guessed_states)}/50 States correct', prompt='Input a state name: ').title()
-    if usr_input in df.state.values:
-        guessed_states.append(usr_input)
-        state_data = df[df.state.values == usr_input] # state_data is a pandas dataframe with 1 record
-        x, y = int(state_data.x), int(state_data.y)
-        writer.goto(x, y)
-        writer.write(state_data.state.values, font=("Arial",12))
-        
-        tkn += 1 # modify the global variable
-        
-    if len(guessed_states) == 50:
+    usr_input = screen.textinput(title=f'{len(guessed_states)}/50 States correct', prompt='Input a state name: ')
+    if usr_input:    
+        usr_input = usr_input.title()
+        print(usr_input)
+        if usr_input in df.state.values:
+            guessed_states.append(usr_input)
+            state_data = df[df.state.values == usr_input] # state_data is a pandas dataframe with 1 record
+            x, y = int(state_data['x'].iloc[0]), int(state_data['y'].iloc[0]) #state_data.coor is a pandas series
+            writer.goto(x, y)
+            writer.write(state_data.state.values, font=("Arial",12))
+            
+        if len(guessed_states) == 50:
+            turtle.bye()
+    else:
         turtle.bye()
-
 while len(guessed_states) < 50:
     guess_state()
 

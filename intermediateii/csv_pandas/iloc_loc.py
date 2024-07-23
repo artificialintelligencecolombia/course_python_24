@@ -18,12 +18,10 @@ filtered_df = filtered_df[
 ]
 print(f'Filtered DataFrame: \n',filtered_df)
 
-# Set 'insumo' (or appropriate column) as the index
-filtered_df.set_index('insumo', inplace=True)
-
 # Access the row with index 'cloruro de sodio'
 try:
-    row = filtered_df.loc['cloruro de sodio']
+    row = filtered_df.loc[filtered_df['insumo'] =='cloruro de sodio']
+    pd.set_option('display.max_columns',None) # Avoid truncation '...'
     print(row)
 except KeyError:
     print("The index 'cloruro de sodio' does not exist in the DataFrame.")
