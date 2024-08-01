@@ -1,0 +1,30 @@
+INVENTARIOS,JUNIO 2024,,,,,,,,,
+fecha,insumo,tipo,cantidad,primary_units,proveedor_1,proveedor_2,purchase_date,production_date,costo_unitario_iva_inc, costo_total 
+7/1/2024,aceite de ricino,materia prima,0.253,kg,quimifast y cia sas,,01/05/2024,," $ 19,500.00 "," $ 4,933.50 "
+7/1/2024,acido citrico anhidro,materia prima,0.5,kg,protokimica,,01/05/2024,,, $ -   
+7/1/2024,acido sulfonico lineal,materia prima,1.762,kg,quimifast y cia sas,,01/05/2024,," $ 12,850.00 "," $ 22,641.70 "
+7/1/2024,alcohol cetilico,materia prima,1,kg,quimifast y cia sas,,01/05/2024,," $ 14,500.00 "," $ 14,500.00 "
+7/1/2024,alcohol estearilico,materia prima,1,kg,quimifast y cia sas,,01/05/2024,," $ 13,300.00 "," $ 13,300.00 "
+7/1/2024,anilina vegetal rojo 3x,materia prima,0.02958,kg,quimicos el arriero,,6/29/2024,," $ 130,000.00 "," $ 3,845.40 "
+7/10/2024,aroma suavizante industrial,materia prima,1.796,kg,bouquet aromas y fragancias,,07/09/2024,," $ 110,313.00 "," $ 198,122.15 "
+7/1/2024,base hidroalcoholica de perfumeria,materia prima,4,L,bouquet aromas y fragancias,,01/05/2024,,, $ -   
+7/1/2024,cloruro de behetrimonio,materia prima,1,kg,quimifast y cia sas,,01/05/2024,," $ 83,100.00 "," $ 83,100.00 "
+7/10/2024,cloruro de sodio,materia prima,1.65,kg,comercial,,7/9/2024,," $ 2,600.00 "," $ 4,290.00 "
+7/1/2024,cocoamida dea,materia prima,0.5,L,protokimica,,01/05/2024,,, $ -   
+7/1/2024,extracto de avena,materia prima,1,kg,quimifast y cia sas,,01/05/2024,," $ 73,500.00 "," $ 73,500.00 "
+7/1/2024,glicerina USP,materia prima,1.63,kg,quimifast y cia sas,protokimica,01/05/2024,," $ 6,300.00 "," $ 10,269.00 "
+7/1/2024,lauril eter sulfato de sodio al 28%,materia prima,0.5,L,protokimica,,01/05/2024,,, $ -   
+7/1/2024,soda caustica en escamas al 99%,materia prima,2.293,kg,antoquena de quimicos,,01/05/2024,," $ 4,000.00 "," $ 9,172.00 "
+7/1/2024,sorbato de potasio,materia prima,1,kg,quimifast y cia sas,,01/05/2024,," $ 19,100.00 "," $ 19,100.00 "
+7/1/2024,trietanolamina al 85%,materia prima,0.72863,kg,quimifast y cia sas,,01/05/2024,," $ 17,400.00 "," $ 12,678.16 "
+7/1/2024,tween 80,materia prima,0.25,L,protokimica,,01/05/2024,,, $ -   
+7/1/2024,base granular,producto en proceso,1.582,kg,living antioquia,,,07/19/2024," $ 14,772.00 "," $ 23,369.30 "
+7/30/2024,jabon desengrasante granel,producto en proceso,42.48,kg,living antioquia,,,7/23/2024," $ 2,987.00 "," $ 126,887.76 "
+7/30/2024,envase 340mL + tapa push pull R28,material de empaque,61,un,masterplast sas,,7/3/2024,, $ 991.00 ," $ 60,451.00 "
+7/30/2024,envase 4L + tapa,material de empaque,4,un,polyenvases,,7/30/2024,," $ 3,300.00 "," $ 13,200.00 "
+7/30/2024,etiquetas jabon desengrasante 340mL,etiquetas,953,un,prisma artes graficas,,6/29/2024,, $ 390.00 ," $ 371,670.00 "
+7/10/2024,etiquetas jabon desengrasante 4L,etiquetas,1000,un,prisma artes graficas,,6/29/2024,, $ 360.00 ," $ 360,000.00 "
+7/30/2024,jabon desengrasante 340mL,producto terimado,17,un,living antioquia,,,," $ 3,549.00 "," $ 60,333.00 "
+7/30/2024,jabon desengrasante 4 L,producto terimado,2,un,living antioquia,,,," $ 20,532.00 "," $ 41,064.00 "
+,,,,,,,,,,
+total,,,,,,,,,," $ 1,526,426.97 "
