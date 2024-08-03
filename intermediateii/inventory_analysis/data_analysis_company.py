@@ -10,7 +10,7 @@ import seaborn as sns
 FILEPATH = './inventory_chemistry_company_jul.csv'
 
 # Read the .csv file into a dataframe -> Skip the final rows (empty, total)
-df = pd.read_csv(FILEPATH, skiprows=1, skipfooter=2, engine='python', skipinitialspace=True)
+df = pd.read_csv(FILEPATH, skiprows=1, skipfooter=2)
 
 # Strip spaces from column names
 df.columns = df.columns.str.strip()
@@ -29,8 +29,7 @@ pd.set_option('display.width', None)  # Additional feature: Auto-detect the widt
 # Check and convert date columns
 date_columns = ['fecha', 'purchase_date', 'production_date']
 for col in date_columns:
-    if col in df.columns:
-        df[col] = pd.to_datetime(df[col], format='%m/%d/%Y', errors='coerce')
+    df[col] = pd.to_datetime(df[col], format='%m/%d/%Y', errors='coerce')
     
 # Check and convert currency columns
 currency_columns = ['costo_unitario_iva_inc','costo_total']
@@ -41,10 +40,10 @@ def clean_currency(value):
         if value == '' or value == '-': 
             return 0
         try: # attempt to convert the cleaned str to a float
-            return float(value)
+            return float(value) # return cleaned value, float format
         except ValueError:
             return None
-    return value # return cleaned value, if not a str -> return it as-is.
+    return value # if not a str -> return it as-is.
 
 for col in currency_columns: # For each column in the list of currency columns ...
     df[col] = df[col].apply(clean_currency) # ... apply clean_currency to each element of the column

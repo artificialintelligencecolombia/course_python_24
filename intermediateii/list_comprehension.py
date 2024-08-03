@@ -2,7 +2,7 @@
 
 # new_list = [new_item for item in list if condition]
 
-list = [*range(1,11,1)]  # output: <class 'list'> -> with unpack operator '*' output: [...]
+list = [*range(1,10+1,1)]  # output: <class 'list'> -> with unpack operator '*' output: [...]
 
 # Create a new list with the squared of the even numbers
 new_list = [n**2 for n in list if n % 2 == 0]
