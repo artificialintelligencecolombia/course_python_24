@@ -1,16 +1,19 @@
 # tkinter is alreday preinstalled in the python library
-#
 
 import tkinter
 
 # Create a new window
 root = tkinter.Tk()
 root.title("My first GUI")
-root.minsize(500,300) # (width,height) -> Set the initial size of the window. Still, we're able to maximize and scale the window size larger.
+root.minsize(500,300) # (width,height) -> Set the initial size of the window. Still, we're able to maximize and scale the window size larger based on the content dimensions.
 
 # Create a label
-my_label = tkinter.Label(root, text="This is my program", font=('Calibri',18, 'normal'))
-my_label.pack(expand=True) # Add the widget to the window
+my_label = tkinter.Label(root, text="This is a Python GUI", font=('Calibri',18, 'normal'))
+my_label.pack() # Add the widget to the window
+
+my_button = tkinter.Button(root, text='Click me')
+my_button.pack()  # .pack() method is primarily used for positioning, resizing and styling widgets within a parent container
+# .pack() method in Tkinter does share some similarities with CSS in terms of layout and positioning.
 
 # Keep the window open. This line of code has to be at the end of the script
 root.mainloop()

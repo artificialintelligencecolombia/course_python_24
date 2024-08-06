@@ -23,7 +23,7 @@ phonetic_dict = {row.letter:row.code for (index,row) in phonetic_df.iterrows()}
 # Create a new list with the phonetic codes based in the usr name's letters.
 phonetic_name = [phonetic_dict[letter.upper()] for letter in usr_input if letter.upper() in phonetic_dict]
 # phonetic_name = [...] -> constuct a list
-# phonetic_dict[letter.upper()] -> looks for the letter in the dict and retrieves its respective phonetic code value.
+# phonetic_dict[letter.upper()] -> looks for the letter in the dict (THE KEY) and retrieves its respective phonetic code value.
 # for each letter in the user name (string 'list')
 # if letter.upper() in phonetic_dict -> checks if the current letter exists as key in the dictionary.
 
