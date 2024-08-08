@@ -1,4 +1,4 @@
-# In Tkinter widgets we have 2 groups of options:
+# In Tkinter widgets we have 2 groups of options(attributes):
 # Standard Options: list of options that are common to many widgets
 # Widget specific Options: the options of that particular widget
 
@@ -9,9 +9,9 @@ root = tkinter.Tk()
 root.title("Python GUI")
 root.minsize(600,400)
 
-# Setting Options
-# Options control the features of the widget. They can be set in 3 ways:
-my_label = tkinter.Label(root, text='This is a label', font=("Arial", 18, "italic"))
+# 3 ways of Setting Options
+# Options helps controlling the features of the widget. They can be set in 3 ways:
+my_label = tkinter.Label(root, text='This is a label', font=("Arial", 18, "italic")) # In the creation of the widget
 
 my_label["fg"] = 'white'
 my_label["bg"] = 'black' # After object creation, treating the option like a dictionary index
