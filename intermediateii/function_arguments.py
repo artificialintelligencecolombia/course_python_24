@@ -11,7 +11,7 @@ def my_function(a,b,c):
 
 # FUNCTION WITH DEFAULT ARGUMENTS (KEYWORD ARGUMENTS)
 # These functions have one or more parameters with default values. If I don't provide a value for these parameters when calling the function, the function uses the default values. 
-# can call a function with arguments out of order by using keyword arguments.
+# We can call a function with arguments out of order by using keyword arguments.
 def my_other_function(a,b=2,c=4):
     pass
 

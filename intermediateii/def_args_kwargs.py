@@ -17,7 +17,7 @@ print(add(10,5,87,1,3,9,14,4,58,7,5,32)) # o: 235
 
 
 # FUNCTION WITH FLEXIBLE NUMBER OF KEYWORD ARGUMENTS
-# To create a flexible function that can accept UNLIMITED number of keyword arguments, we use the '**' symbol _> It allows us to pass a variable number of keyword arguments to the function.
+# To create a flexible function that can accept UNLIMITED number of keyword arguments, we use the '**' symbol -> It allows us to pass a variable number of keyword arguments to the function.
 # The arguments are stored in a dictionary named 'kwargs'.
 
 def calculate(n, **kwargs): # function accepts any number of keyword arguments
@@ -25,13 +25,13 @@ def calculate(n, **kwargs): # function accepts any number of keyword arguments
     for key,value in kwargs.items():
         print(f"{key}={value}")
         
-    n += kwargs.get('add', 0)        # default value is 0 if 'add' is not provided
-    n *= kwargs.get('multiply', 1)   # default value is 1 if 'multiply' is not provided
+    n += kwargs.get('add', 0)        # default value is 0 if default argument:'add' is not provided
+    n *= kwargs.get('multiply', 1)   # default value is 1 if default argument:'multiply' is not provided
     # If the key is not present in the dictionary, .get() returns a default value which you can specify.
     return n
 
 print(calculate(2)) # o: 2 -> No keyword arguments
-print(calculate(2, add=3)) # o: 5 -> missing keyword arguments
+print(calculate(2, add=3)) # o: 5 -> missing keyword arguments(multiply)
 print(calculate(2, add=3, multiply=4))  # Output: 20
 
 
@@ -48,10 +48,12 @@ class Person:
         self.hobby = kwargs.get('hobby', 'None')
         
 person1 = Person(name='John') # Providing only the required attribute
+person2 = Person(name='Bob', city='Bagdad',hobby='guns') # Providing only the required attribute
 
 print(person1.name) # o: John
 print(person1.city) # o: None
+print(person2.city) # o: Bagdad
 
 # **kwargs in Classes: Allows the class constructor to accept a flexible number of keyword arguments.
-# Using .get() Method: Ensures safe access to dictionary values with defaults, preventing errors if the key is not present.
+# Using .get() Method: Ensures safe access to dictionary values with defaults, preventing errors if the key is not given/present.
 # Default Values: Provides default values for optional attributes, making the class robust and flexible in handling varying inputs.
