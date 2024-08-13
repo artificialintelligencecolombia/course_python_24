@@ -1,4 +1,6 @@
 from tkinter import *
+import time
+import math
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -14,23 +16,35 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
-# ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
+def start_timer():
+    countdown(WORK_MIN * 60)
+# ---------------------------- 2.COUNTDOWN MECHANISM ------------------------------- # 
+# Create a timer
+def countdown(count):
+    count_min = math.floor(count / 60)
+    count_sec = count % 60
+    if count_sec < 10:
+        count_sec = f"0{count_sec}"
+    
+    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}") # Each 1000ms, the timer will update the count in the timer text object of the canvas
+    if count > 0:
+        window.after(1000, countdown, count - 1)
 
 # ---------------------------- 1.UI SETUP ------------------------------- #
 # Window configuration
 window = Tk()  # Initializes the main window
 window.title("Pomodoro")  # Sets the title of the window
-window.config(padx=100, pady=50, bg=YELLOW)  # Configures padding and background color
+window.config(padx=100, pady=50, bg=YELLOW)  # Configures padding of the content and background color for window
 
 # Timer label
-miles_label = Label(text="Timer", font=("Arial", 48))
+miles_label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=("Arial", 48))
 miles_label.grid(column=1, row=0)
 
 # Canvas storage for image
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)  # Creates the canvas with specified dimensions and color
 tomato_img = PhotoImage(file="tomato.png")  # Loads the tomato image
 canvas.create_image(100, 112, image=tomato_img)  # Places the image on the canvas
-canvas.create_text(100, 128, text="00:00", fill="white", font=(FONT_NAME, 36, "bold"))  # Adds text to the canvas
+timer_text = canvas.create_text(100, 128, text="00:00", fill="white", font=(FONT_NAME, 36, "bold"))  # 'timer_text' as a variable that allows to access it and update its text with the countdown time
 canvas.grid(column=1, row=1)  # Displays the canvas in the window
 
 # Buttons
@@ -41,13 +55,13 @@ def actionbtn2():
     print("Do something")
 
 # Configuration for buttons
-button = Button(text="Start", command=actionbtn1)
-button.grid(column=0, row=2)
-button = Button(text="Reset", command=actionbtn2)
-button.grid(column=2, row=2)
+button1 = Button(text="Start", font=("Arial", 16, "bold"), command=start_timer)
+button1.grid(column=0, row=2)
+button2 = Button(text="Reset", font=("Arial", 16, "bold"), command=actionbtn2)
+button2.grid(column=2, row=2)
 
 # Checklist label
-miles_label = Label(text="✔", font=("Arial", 32))
+miles_label = Label(text="✔", fg=GREEN, bg=YELLOW, font=("Arial", 32))
 miles_label.grid(column=1, row=3)
 
 # Keep the window open. This line of code has to be at the end of the script
