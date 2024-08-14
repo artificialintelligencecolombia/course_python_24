@@ -10,14 +10,39 @@ YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+LONG_BREAK_MIN = 15
+reps = 0 # reps increments every time start_timer() is called for each phase (work, break or long break)
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 
+def reset_pomodoro():
+    global reps
+    reps = 0
+    countdown(0) # immediately update the timer display to 00:00 when the reset button is pressed.
+    
+
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
+# reps = 1 -> 25 min
+# reps = 2 -> 5 min
+# reps = 3 -> 25 min
+# reps = 4 -> 5 min
+# reps = 5 -> 25 min
+# reps = 6 -> 5 min
+# reps = 7 -> 25 min
+# reps = 8 -> 15 min
+
+# This function triggers the countdown process by calling the countdown function with the time in seconds
 def start_timer():
-    countdown(WORK_MIN * 60)
+    global reps # refer to global variable
+    reps += 1 
+    if reps % 8 == 0: # handles de long break after every 8 phases. It ensures the timer to continue indefinitely.
+        countdown(LONG_BREAK_MIN * 60)
+    elif reps % 2 == 0:
+        countdown(SHORT_BREAK_MIN * 60)
+    else:
+        countdown(WORK_MIN * 60)
+    
 # ---------------------------- 2.COUNTDOWN MECHANISM ------------------------------- # 
 # Create a timer
 def countdown(count):
@@ -25,9 +50,13 @@ def countdown(count):
     count_sec = count % 60
     if count_sec < 10:
         count_sec = f"0{count_sec}"
+    if count_min == 0:
+        count_min = f"0{count_min}"
     
-    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}") # Each 1000ms, the timer will update the count in the timer text object of the canvas
-    if count > 0:
+    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}") # updates the text on the canvas (widget) with the formatted time.
+    
+    # Recursive Call: If count is greater than 0, the function schedules another call to countdown after 1000 milliseconds (1 second) with the decremented count.
+    if count > 0: 
         window.after(1000, countdown, count - 1)
 
 # ---------------------------- 1.UI SETUP ------------------------------- #
@@ -47,17 +76,10 @@ canvas.create_image(100, 112, image=tomato_img)  # Places the image on the canva
 timer_text = canvas.create_text(100, 128, text="00:00", fill="white", font=(FONT_NAME, 36, "bold"))  # 'timer_text' as a variable that allows to access it and update its text with the countdown time
 canvas.grid(column=1, row=1)  # Displays the canvas in the window
 
-# Buttons
-def actionbtn1():
-    print("Do something")
-    
-def actionbtn2():
-    print("Do something")
-
 # Configuration for buttons
 button1 = Button(text="Start", font=("Arial", 16, "bold"), command=start_timer)
 button1.grid(column=0, row=2)
-button2 = Button(text="Reset", font=("Arial", 16, "bold"), command=actionbtn2)
+button2 = Button(text="Reset", font=("Arial", 16, "bold"), command=reset_pomodoro)
 button2.grid(column=2, row=2)
 
 # Checklist label
