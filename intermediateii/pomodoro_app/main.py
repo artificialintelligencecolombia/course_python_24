@@ -8,18 +8,21 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 25
+WORK_MIN = 10
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 15
 reps = 0 # reps increments every time start_timer() is called for each phase (work, break or long break)
+timer = None
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 
 def reset_pomodoro():
-    global reps
+    global reps, timer
     reps = 0
-    countdown(0) # immediately update the timer display to 00:00 when the reset button is pressed.
-    
+    window.after_cancel(timer)
+    label.config(text="Timer", fg=GREEN)
+    # timer_text.config(text="00:00")
+    checkmark_label.config(text="", fg=GREEN)
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
@@ -37,11 +40,14 @@ def start_timer():
     global reps # refer to global variable
     reps += 1 
     if reps % 8 == 0: # handles de long break after every 8 phases. It ensures the timer to continue indefinitely.
+        label.config(text="Rest", fg=PINK)
         countdown(LONG_BREAK_MIN * 60)
     elif reps % 2 == 0:
-        countdown(SHORT_BREAK_MIN * 60)
+        label.config(text="Break", fg=RED)
+        countdown(SHORT_BREAK_MIN)    
     else:
-        countdown(WORK_MIN * 60)
+        label.config(text="Work", fg=GREEN)
+        countdown(WORK_MIN)
     
 # ---------------------------- 2.COUNTDOWN MECHANISM ------------------------------- # 
 # Create a timer
@@ -56,8 +62,15 @@ def countdown(count):
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}") # updates the text on the canvas (widget) with the formatted time.
     
     # Recursive Call: If count is greater than 0, the function schedules another call to countdown after 1000 milliseconds (1 second) with the decremented count.
-    if count > 0: 
-        window.after(1000, countdown, count - 1)
+    if count > 0:
+        global timer 
+        timer = window.after(1000, countdown, count - 1)
+    else:
+        start_timer() # each time the phase finishes, it calls the start_timer function once again, so it wont stop.
+        global reps
+        if reps % 2 == 0:
+            checkmark_text = checkmark_label.cget("text")  # Get the current text in the label
+            checkmark_label.config(text=checkmark_text + "✔")  # Append a checkmark
 
 # ---------------------------- 1.UI SETUP ------------------------------- #
 # Window configuration
@@ -66,8 +79,8 @@ window.title("Pomodoro")  # Sets the title of the window
 window.config(padx=100, pady=50, bg=YELLOW)  # Configures padding of the content and background color for window
 
 # Timer label
-miles_label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=("Arial", 48))
-miles_label.grid(column=1, row=0)
+label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=("Arial", 48))
+label.grid(column=1, row=0)
 
 # Canvas storage for image
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)  # Creates the canvas with specified dimensions and color
@@ -83,8 +96,8 @@ button2 = Button(text="Reset", font=("Arial", 16, "bold"), command=reset_pomodor
 button2.grid(column=2, row=2)
 
 # Checklist label
-miles_label = Label(text="✔", fg=GREEN, bg=YELLOW, font=("Arial", 32))
-miles_label.grid(column=1, row=3)
+checkmark_label = Label(text="",fg=GREEN, bg=YELLOW, font=("Arial", 32))
+checkmark_label.grid(column=1, row=3)
 
 # Keep the window open. This line of code has to be at the end of the script
 window.mainloop()  # Starts the Tkinter event loop
