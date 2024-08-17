@@ -21,7 +21,7 @@ def reset_pomodoro():
     reps = 0
     window.after_cancel(timer)
     label.config(text="Timer", fg=GREEN)
-    # timer_text.config(text="00:00")
+    canvas.itemconfig(timer_text, text="00:00")
     checkmark_label.config(text="", fg=GREEN)
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
