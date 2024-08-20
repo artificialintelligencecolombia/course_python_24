@@ -3,6 +3,21 @@ from tkinter import *
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+# Creates the function that will store the data
+def save():
+    # Retrieve the current text from the Entry widget
+    website_str = website_input.get() 
+    email_str = usr_email.get()
+    passwd_str = passwd_input.get()
+    # Opens the file and append the information in each line
+    with open('data.txt', 'a') as f:
+        f.write(f"{website_str} | {email_str} | {passwd_str} \n")
+        f.close() # 'with open', f.close() is not necessary
+        
+    # Clear the content of the Entry widgets after saving the data
+    website_input.delete(0, END)  # Clear the website input field
+    usr_email.delete(0, END)      # Clear the email input field
+    passwd_input.delete(0, END)   # Clear the password input field
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -29,22 +44,21 @@ passwd.grid(row=3, column=0)
 
 # Entries
 website_input = Entry(width=35)
-print(website_input.get()) # Retrieves the current text from the Entry widget
+website_input.focus() # automatically set the keyboard focus on the widget
 website_input.grid(row=1, column=1, columnspan=2)
 
-usr_input = Entry(width=35)
-print(usr_input.get()) # Retrieves the current text from the Entry widget
-usr_input.grid(row=2, column=1, columnspan=2)
+usr_email = Entry(width=35)
+usr_email.insert(0, "@example.com") # 0,'end' refers to the position where the text will be inserted
+usr_email.grid(row=2, column=1, columnspan=2)
 
 passwd_input = Entry(width=21)
-print(passwd_input.get()) # Retrieves the current text from the Entry widget
 passwd_input.grid(row=3, column=1, sticky="w")
 
 # Buttons
 genpass_btn = Button(text="Generate Password")
 genpass_btn.grid( row=3, column=2)
 
-add_btn = Button(text="Add", width=36)
+add_btn = Button(text="Add", width=36, command=save)
 add_btn.grid(row=4, column=1, columnspan=2)
  
 
