@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox # Allows to use popups
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -9,15 +10,22 @@ def save():
     website_str = website_input.get() 
     email_str = usr_email.get()
     passwd_str = passwd_input.get()
-    # Opens the file and append the information in each line
-    with open('data.txt', 'a') as f:
-        f.write(f"{website_str} | {email_str} | {passwd_str} \n")
-        f.close() # 'with open', f.close() is not necessary
-        
-    # Clear the content of the Entry widgets after saving the data
-    website_input.delete(0, END)  # Clear the website input field
-    usr_email.delete(0, END)      # Clear the email input field
-    passwd_input.delete(0, END)   # Clear the password input field
+    
+    # Checks if there's missing information and pop ups a confirmation message
+    if len(website_str) == 0 or len(passwd_str) == 0:
+        messagebox.showwarning(title="Warning", message="Missing information. Please complete it.")
+    else:
+        is_ok = messagebox.askokcancel(title=f"{website_str}", message=f"Email: {email_str} \nPassword: {passwd_str} \n\n Click 'ok' to save.")
+        if is_ok:
+            # Opens the file and append the information in each line
+            with open('data.txt', 'a') as f:
+                f.write(f"{website_str} | {email_str} | {passwd_str} \n")
+                f.close() # 'with open', f.close() is not necessary
+                
+            # Clear the content of the Entry widgets after saving the data
+            website_input.delete(0, END)  # Clear the website input field
+            usr_email.delete(0, END)      # Clear the email input field
+            passwd_input.delete(0, END)   # Clear the password input field
 
 # ---------------------------- UI SETUP ------------------------------- #
 
