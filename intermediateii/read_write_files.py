@@ -5,8 +5,7 @@ with open('my_text_file.txt', 'r+') as f:
     # Read the file -> by using read() method
     content = f.read()
     
-    # Pr
-    # int content before append
+    # Print content before append
     print('Content before append: ')
     print(content)
     

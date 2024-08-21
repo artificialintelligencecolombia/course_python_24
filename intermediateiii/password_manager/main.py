@@ -1,10 +1,27 @@
 from tkinter import *
 from tkinter import messagebox # Allows to use popups
+import random
+import string
+import pyperclip # Allows interaction with the clipboard to copy text
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def password_generator():
+    # Call the characters for the password generator
+    characters = string.ascii_letters + string.punctuation + string.digits
+
+    # Provide the password_length
+    password_length = random.randint(10,16)
+
+    # Generate the password using a list comprehension
+    password = ''.join(random.choice(characters) for _ in range(password_length))
+    # generates a random password by selecting password_length characters from the characters string and concatenating them into a single string using ''.join(). The _ is used as a placeholder in the loop to iterate without needing the actual index.
+    
+    passwd_input.delete(0, END)  # Clear the entry widget
+    passwd_input.insert(0, password)  # Insert the generated password
+    pyperclip.copy(password) # Copy the generated password to the clipboard -> Enables easy pasting of the password elsewhere
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-# Creates the function that will store the data
+# Creates the function that will store the data by clicking on the 'add' button
 def save():
     # Retrieve the current text from the Entry widget
     website_str = website_input.get() 
@@ -63,7 +80,7 @@ passwd_input = Entry(width=21)
 passwd_input.grid(row=3, column=1, sticky="w")
 
 # Buttons
-genpass_btn = Button(text="Generate Password")
+genpass_btn = Button(text="Generate Password", command=password_generator)
 genpass_btn.grid( row=3, column=2)
 
 add_btn = Button(text="Add", width=36, command=save)

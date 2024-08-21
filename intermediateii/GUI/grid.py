@@ -27,7 +27,7 @@ new_button.grid(column=2, row=0)
 
 #Entry
 input = Entry(width=10)
-print(input.get())
+print(input.get()) # Retrieves the current text from the Entry widget
 input.grid(column=3, row=2)
 
 window.mainloop()
