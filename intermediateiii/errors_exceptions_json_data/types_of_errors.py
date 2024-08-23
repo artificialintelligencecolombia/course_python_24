@@ -20,7 +20,7 @@
 # int("abc")  
 
 # 6. AttributeError -> 'uppercase' is not a method of str
-# text = "abc"
+# text = uppercase("abc")
 
 # 7. ImportError
 # import non_existent_module  
