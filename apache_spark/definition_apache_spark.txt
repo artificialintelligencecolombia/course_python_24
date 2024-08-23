@@ -1,0 +1,25 @@
+==============================
+APACHE SPARK  
+==============================
+
+---------------------
+Fundamentals
+---------------------
+
+- Its a data processing tool.
+- Its capabilities are more faster that Hadoop.
+- It incorporates libraries such as:
+    MLlib
+    SparkSQL
+    Structured Streaming
+    GraphX
+
+- Features: Speed, Ease to use, Modularity, Extensibility.
+
+Spark Components
+----------------
+
+1. Spark SQL and DataFrames (querying)
+2. Spark Streaming (structured streaming)
+3. Machine Learning (MLlib)
+4. Graph Processing (GraphX)
