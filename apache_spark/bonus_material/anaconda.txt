@@ -71,7 +71,7 @@ conda list --explicit > myenv.txt
 - list all the packages installed in the active venv. '--explicit' flag includes the precise versions of the packages.
 - '>' redirects the output to 'myenv.txt' file where the list will be saved.
 
-conda create --name myenv --file myenv.txt
+conda create --name <env_name> --file myenv.txt
 
 - create a new venv with a specified name. '--file myenv.txt' use the file created to install the exact packages listed in that file into the new venv.
 
