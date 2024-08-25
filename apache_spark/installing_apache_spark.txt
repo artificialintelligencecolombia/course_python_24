@@ -83,6 +83,7 @@ Test
 1. Open cmd 
 2. - spark-shell
 3. Verify that all shit appears (with scala)
-4. quit()
+4. System.exit(0)
 5. - pyspark
-6. print(pyspark.version)
+    import pyspark
+6.  print(pyspark.__version__)
