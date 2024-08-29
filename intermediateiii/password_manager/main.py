@@ -37,7 +37,6 @@ def save():
             # Opens the file and append the information in each line
             with open('data.txt', 'a') as f:
                 f.write(f"{website_str} | {email_str} | {passwd_str} \n")
-                f.close() # 'with open', f.close() is not necessary
                 
             # Clear the content of the Entry widgets after saving the data
             website_input.delete(0, END)  # Clear the website input field
@@ -53,7 +52,7 @@ window.config(padx=50, pady=50) # Adds padding around the window
 
 # Canvas storage for image
 canvas = Canvas(width=200, height=200)  # Creates the canvas with specified dimensions 
-lock_img = PhotoImage(file="./logo.png")  # Loads the lock image from a file
+lock_img = PhotoImage(file="logo.png")  # Loads the lock image from a file
 canvas.create_image(100, 100, image=lock_img)  # Places the image at the center of the canvas
 canvas.grid(row=0, column=1, columnspan=2)
 
@@ -73,7 +72,7 @@ website_input.focus() # automatically set the keyboard focus on the widget
 website_input.grid(row=1, column=1, columnspan=2)
 
 usr_email = Entry(width=35)
-usr_email.insert(0, "@example.com") # 0,'end' refers to the position where the text will be inserted
+usr_email.insert(0, "user@example.com") # 0,'end' refers to the position where the text will be inserted
 usr_email.grid(row=2, column=1, columnspan=2)
 
 passwd_input = Entry(width=21)
