@@ -44,7 +44,7 @@ def save():
             usr_email.delete(0, END)      # Clear the email input field
             passwd_input.delete(0, END)   # Clear the password input field
 
-# ---------------------------- UI SETUP ------------------------------- #
+# ---------------------------- 1.UI SETUP ------------------------------- #
 
 # Window configuration
 window = Tk()  # Initializes the main window
