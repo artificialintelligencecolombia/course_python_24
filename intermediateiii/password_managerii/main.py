@@ -34,17 +34,17 @@ passwd = Label(text="Password: ")
 passwd.grid(row=3, column=0)
 
 # Entries
-website_entry = Entry()
+website_entry = Entry(width=35)
 website_entry.grid(row=1, column=1, columnspan=2)
 
-email_entry = Entry()
+email_entry = Entry(width=35)
 email_entry.grid(row=2, column=1, columnspan=2)
 
-passwd_entry = Entry()
+passwd_entry = Entry(width=21)
 passwd_entry.grid(row=3, column=1)
 
 # Buttons
-add_btn = Button(text="Add")
+add_btn = Button(text="Add", width=36)
 add_btn.grid(row=4, column=1, columnspan=2)
 
 genpass_btn = Button(text="Generate Password")

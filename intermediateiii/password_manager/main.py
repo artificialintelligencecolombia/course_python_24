@@ -76,7 +76,7 @@ usr_email.insert(0, "user@example.com") # 0,'end' refers to the position where t
 usr_email.grid(row=2, column=1, columnspan=2)
 
 passwd_input = Entry(width=21)
-passwd_input.grid(row=3, column=1, sticky="w")
+passwd_input.grid(row=3, column=1)
 
 # Buttons
 genpass_btn = Button(text="Generate Password", command=password_generator)
