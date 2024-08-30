@@ -12,7 +12,12 @@ def test():
     psswd_str = passwd_entry.get()
 
     with open("./intermediateiii/password_managerii/pswd_manager.txt", "a") as f:
-        f.write(f"{website_str} | {email_str} | {psswd_str}")
+        f.write(f"{website_str} | {email_str} | {psswd_str}\n")
+
+    # Clear the already saved content of the widgets
+    website_entry.delete(0, END)
+    email_entry.delete(0, END)
+    passwd_entry.delete(0, END)
 
 # ---------------------------- 1.UI SETUP ------------------------------- #
 # Window
