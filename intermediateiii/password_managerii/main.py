@@ -1,8 +1,24 @@
 # Import libraries
 from tkinter import *
 import os
+import random
+import string
+import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def pass_generator():
+    # List of charaters that will componse the passwords
+    character_list = string.ascii_letters + string.punctuation + string.digits
 
+    # Define the passwd lenght
+    pass_len = random.randint(16,20)
+
+    # Generate the passwd using list comprehension
+    password = ''.join(random.choice(character_list) for _ in range(pass_len))
+
+    passwd_entry.delete(0, END)  # Clear the entry widget
+    passwd_entry.insert(0, password)  # Insert the generated password
+
+    
 # ---------------------------- 2. SAVE PASSWORD ------------------------------- #
 
 # Get the values of the entries
@@ -11,8 +27,14 @@ def test():
     email_str = email_entry.get()
     psswd_str = passwd_entry.get()
 
-    with open("./intermediateiii/password_managerii/pswd_manager.txt", "a") as f:
-        f.write(f"{website_str} | {email_str} | {psswd_str}\n")
+    account_data = {
+        website_str: {
+            "email": email_str,
+            "password": psswd_str}
+    }
+
+    with open("./intermediateiii/password_managerii/pswd_manager.json", "a") as f:
+        json.dump(account_data, f)
 
     # Clear the already saved content of the widgets
     website_entry.delete(0, END)
@@ -59,7 +81,7 @@ passwd_entry.grid(row=3, column=1)
 add_btn = Button(text="Add", width=36, command=test)
 add_btn.grid(row=4, column=1, columnspan=2)
 
-genpass_btn = Button(text="Generate Password")
+genpass_btn = Button(text="Generate Password", command=pass_generator)
 genpass_btn.grid(row=3, column=2)
 
 window.mainloop()
