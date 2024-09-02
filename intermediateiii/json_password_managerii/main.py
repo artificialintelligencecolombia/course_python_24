@@ -4,11 +4,12 @@ import os
 import random
 import string
 import json
+from tkinter import messagebox # Allows to use popups
 
 # Json format is the most popular structure for transferring data. Its similar to dictionaries.
 # Json is composed of a list of nested dictionaries with the key: value data structure.
 
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+# ---------------------------- 2. PASSWORD GENERATOR ------------------------------- #
 def pass_generator():
     # List of charaters that will componse the passwords
     character_list = string.ascii_letters + string.punctuation + string.digits
@@ -23,13 +24,13 @@ def pass_generator():
     passwd_entry.insert(0, password)  # Insert the generated password
 
     
-# ---------------------------- 2. SAVE PASSWORD ------------------------------- #
+# ---------------------------- 3. SAVE PASSWORD ------------------------------- #
 
 # Path of the JSON file.
 data_file = "./intermediateiii/json_password_managerii/pswd_manager.json"
 
-# Get the values of the entries
 def test():
+    # Get the values of the entries
     website_str = website_entry.get()
     email_str = email_entry.get()
     psswd_str = passwd_entry.get()
@@ -60,11 +61,34 @@ def test():
             json.dump(data, f, indent=4) # Allow me to store JSON UPDATED data directly into a file.
             # indent=4 creates indentation for better readability
 
+    finally:
+        # Clear the already saved content of the widgets
+        website_entry.delete(0, END)
+        email_entry.delete(0, END)
+        passwd_entry.delete(0, END)
 
-    # Clear the already saved content of the widgets
-    website_entry.delete(0, END)
-    email_entry.delete(0, END)
-    passwd_entry.delete(0, END)
+# ---------------------------- 4. SEARCH DATA ------------------------------- #
+
+def find_password():
+    # Get the value from the website account
+    search = website_entry.get()
+
+    if len(search) == 0:
+        messagebox.showwarning(title="Warning", message="Missing information. Please complete it.")
+    else:
+        # Read JSON data
+        with open(data_file, "r") as f:
+        # Reading current data
+            dict = json.load(f)  # Loads JSON data into a Python dict
+            
+            if search in dict:
+                email = dict[search]["email"]
+                psswd = dict[search]["password"]
+                
+                # Info message
+                messagebox.showinfo(title=f"search", message=f"Email: {email} \nPassword: {psswd}")
+            else:
+                print("No data")
 
 # ---------------------------- 1.UI SETUP ------------------------------- #
 # Window
@@ -94,20 +118,23 @@ passwd.grid(row=3, column=0)
 
 # Entries
 website_entry = Entry(width=35)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry.grid(row=1, column=1)
 
 email_entry = Entry(width=35)
 email_entry.insert(0, "user@example.com") # 0,'end' refers to the position where the text will be inserted
 email_entry.grid(row=2, column=1, columnspan=2)
 
 passwd_entry = Entry(width=21)
-passwd_entry.grid(row=3, column=1)
+passwd_entry.grid(row=3, column=1, columnspan=2)
 
 # Buttons
 add_btn = Button(text="Add", width=36, command=test)
-add_btn.grid(row=4, column=1, columnspan=2)
+add_btn.grid(row=4, column=1, columnspan=3)
 
 genpass_btn = Button(text="Generate Password", command=pass_generator)
-genpass_btn.grid(row=3, column=2)
+genpass_btn.grid(row=3, column=3)
+
+search_btn = Button(text='Search', command=find_password)
+search_btn.grid(row=1, column=3)
 
 window.mainloop()

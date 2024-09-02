@@ -1,6 +1,10 @@
 {
-    "hbomax": {
+    "nexflix": {
         "email": "user@example.com",
-        "password": "j(E(V&J8)L53cdjk"
+        "password": "T5lYrh,&\"ApvOg7]_qew"
+    },
+    "amazon": {
+        "email": "user@example.com",
+        "password": "ER;<Wrma\"cz2Ce#`1*Xt"
     }
 }
