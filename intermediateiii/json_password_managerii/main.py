@@ -4,6 +4,10 @@ import os
 import random
 import string
 import json
+
+# Json format is the most popular structure for transferring data. Its similar to dictionaries.
+# Json is composed of a list of nested dictionaries with the key: value data structure.
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def pass_generator():
     # List of charaters that will componse the passwords
@@ -21,20 +25,39 @@ def pass_generator():
     
 # ---------------------------- 2. SAVE PASSWORD ------------------------------- #
 
+# Path of the JSON file.
+data_file = "./intermediateiii/json_password_managerii/pswd_manager.json"
+
 # Get the values of the entries
 def test():
     website_str = website_entry.get()
     email_str = email_entry.get()
     psswd_str = passwd_entry.get()
 
-    account_data = {
+    new_record = {
         website_str: {
             "email": email_str,
             "password": psswd_str}
     }
 
-    with open("./intermediateiii/password_managerii/pswd_manager.json", "a") as f:
-        json.dump(account_data, f)
+    try:
+        # Read JSON data
+        with open(data_file, "r") as f:
+            # 1. Reading current data
+            data = json.load(f)  # Loads JSON data into a Python dict
+
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If the file doesn't exist or is empty/corrupt, start with an empty dictionary
+        data = {}
+
+    # 2. Update the python dict with new data
+    data.update(new_record)
+
+    with open(data_file,"w") as f:
+        # 3. Saving the data
+        json.dump(data, f, indent=4) # Allow me to store JSON UPDATED data directly into a file.
+        # indent=4 creates indentation for better readability
+
 
     # Clear the already saved content of the widgets
     website_entry.delete(0, END)
@@ -72,6 +95,7 @@ website_entry = Entry(width=35)
 website_entry.grid(row=1, column=1, columnspan=2)
 
 email_entry = Entry(width=35)
+email_entry.insert(0, "user@example.com") # 0,'end' refers to the position where the text will be inserted
 email_entry.grid(row=2, column=1, columnspan=2)
 
 passwd_entry = Entry(width=21)
