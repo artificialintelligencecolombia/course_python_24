@@ -47,16 +47,18 @@ def test():
             data = json.load(f)  # Loads JSON data into a Python dict
 
     except (FileNotFoundError, json.JSONDecodeError):
-        # If the file doesn't exist or is empty/corrupt, start with an empty dictionary
-        data = {}
+        # If the file doesn't exist or is empty/corrupt, create a new file in write mode and store the first record
+        with open(data_file, "w") as f:
+            json.dump(new_record, f, indent=4)
 
-    # 2. Update the python dict with new data
-    data.update(new_record)
+    else:
+        # 2. Update the python dict with new data
+        data.update(new_record)
 
-    with open(data_file,"w") as f:
-        # 3. Saving the data
-        json.dump(data, f, indent=4) # Allow me to store JSON UPDATED data directly into a file.
-        # indent=4 creates indentation for better readability
+        with open(data_file,"w") as f:
+            # 3. Saving the data
+            json.dump(data, f, indent=4) # Allow me to store JSON UPDATED data directly into a file.
+            # indent=4 creates indentation for better readability
 
 
     # Clear the already saved content of the widgets
