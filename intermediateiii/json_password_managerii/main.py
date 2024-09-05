@@ -7,7 +7,11 @@ import json
 from tkinter import messagebox # Allows to use popups
 
 # Json format is the most popular structure for transferring data. Its similar to dictionaries.
-# Json is composed of a list of nested dictionaries with the key: value data structure.
+# Json is composed of a list of nested dictionaries with the {key: value} data structure.
+
+# For the 'find_password' function, we may handle a possible error. This is because if there's no passwod_manager.json file, it will lauch FileNotFoundError. 
+
+# Importat: to handle the empty entries. entry != ''
 
 # ---------------------------- 2. PASSWORD GENERATOR ------------------------------- #
 def pass_generator():
@@ -29,7 +33,7 @@ def pass_generator():
 # Path of the JSON file.
 data_file = "./intermediateiii/json_password_managerii/pswd_manager.json"
 
-def test():
+def add_pass():
     # Get the values of the entries
     website_str = website_entry.get()
     email_str = email_entry.get()
@@ -43,20 +47,20 @@ def test():
 
     try:
         # Read JSON data
-        with open(data_file, "r") as f:
+        with open(data_file, "r") as f: # ACCESS NO1: We try to open and see if file exists, its empty or corrupted.
             # 1. Reading current data
-            data = json.load(f)  # Loads JSON data into a Python dict
+            data = json.load(f)  # Loads JSON data into a Python dict JSON LOAD()
 
     except (FileNotFoundError, json.JSONDecodeError):
         # If the file doesn't exist or is empty/corrupt, create a new file in write mode and store the first record
         with open(data_file, "w") as f:
-            json.dump(new_record, f, indent=4)
+            json.dump(new_record, f, indent=4) # This step is here because when need the JSON dict now! so we can create the data file and fill it. JSON DUMP()
 
     else:
         # 2. Update the python dict with new data
-        data.update(new_record)
+        data.update(new_record) # JSON UPDATE()
 
-        with open(data_file,"w") as f:
+        with open(data_file,"w") as f: # ACCESS NO.2: This one is for actually writing on the file -> edit it.
             # 3. Saving the data
             json.dump(data, f, indent=4) # Allow me to store JSON UPDATED data directly into a file.
             # indent=4 creates indentation for better readability
@@ -73,14 +77,15 @@ def find_password():
     # Get the value from the website account
     search = website_entry.get()
 
-    if len(search) == 0:
-        messagebox.showwarning(title="Warning", message="Missing information. Please complete it.")
+    if len(search) == 0: # PRIMERO VER QUE NO ESTE VACIO EL CAMPO -> para no perder recursos con cargar archivo.son y etc.
+        messagebox.showwarning(title="Warning", message="EMPTY FIELD. Please complete it.")
     else:
+        try:
         # Read JSON data
-        with open(data_file, "r") as f:
-        # Reading current data
-            dict = json.load(f)  # Loads JSON data into a Python dict
-            
+            with open(data_file, "r") as f:
+            # Reading current data
+                dict = json.load(f)  # Loads JSON data into a Python dict
+
             if search in dict:
                 email = dict[search]["email"]
                 psswd = dict[search]["password"]
@@ -88,7 +93,12 @@ def find_password():
                 # Info message
                 messagebox.showinfo(title=f"search", message=f"Email: {email} \nPassword: {psswd}")
             else:
-                print("No data")
+                print("No Data Found.")    
+
+        except (FileNotFoundError, json.JSONDecodeError):
+            with open(data_file, "w") as f:
+                messagebox.showwarning(title="Warning", message="EMPTY FIELD. Please complete it.")
+                
 
 # ---------------------------- 1.UI SETUP ------------------------------- #
 # Window
@@ -128,7 +138,7 @@ passwd_entry = Entry(width=21)
 passwd_entry.grid(row=3, column=1, columnspan=2)
 
 # Buttons
-add_btn = Button(text="Add", width=36, command=test)
+add_btn = Button(text="Add", width=36, command=add_pass)
 add_btn.grid(row=4, column=1, columnspan=3)
 
 genpass_btn = Button(text="Generate Password", command=pass_generator)
@@ -138,3 +148,10 @@ search_btn = Button(text='Search', command=find_password)
 search_btn.grid(row=1, column=3)
 
 window.mainloop()
+
+
+#1. json.dump(): Writes a Python object to a file in JSON format.
+
+#2. json.load(): Reads JSON data from a file and converts it to a Python object.
+
+#3. json.update(): Does not exist in the json module; dictionary .update() merges or modifies dictionaries.
