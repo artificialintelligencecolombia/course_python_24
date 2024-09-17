@@ -31,7 +31,7 @@ def pass_generator():
 # ---------------------------- 3. SAVE PASSWORD ------------------------------- #
 
 # Path of the JSON file.
-data_file = "./intermediateiii/json_password_managerii/pswd_manager.json"
+data_file = "./pswd_manager.json"
 
 def add_pass():
     # Get the values of the entries
@@ -97,9 +97,9 @@ def find_password():
 
         except (FileNotFoundError, json.JSONDecodeError):
             with open(data_file, "w") as f:
-                messagebox.showwarning(title="Warning", message="EMPTY FIELD. Please complete it.")
+                messagebox.showwarning(title="Warning", message="No data file found.")
                 
-
+        # Here we have some finally logic missing!!
 # ---------------------------- 1.UI SETUP ------------------------------- #
 # Window
 window = Tk()
