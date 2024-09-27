@@ -13,7 +13,7 @@ df = pd.read_csv(FILE_PATH, header=None)
 header_list = ['russian']
 df.columns = header_list
 
-#Remove numbers and extra spaces
+# Remove numbers and extra spaces
 df['russian'] = df['russian'].apply(lambda x: re.
                                       sub(r'\d+','',x).strip())
 
