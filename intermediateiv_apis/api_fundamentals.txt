@@ -1,0 +1,34 @@
+==============================
+API
+==============================
+
+---------------------
+Fundamentals
+---------------------
+
+Set of commands, functions, protocols and objects that programmers use to create software of interact with an external system.
+
+Our     ----> API ---> External (websites)
+Program                System 
+
+python --->  API     ---> website (pull data)
+----------  REQUEST  -------->
+<---------  RESPONSE -------
+
+---------------------
+Endpoint
+---------------------
+
+- API endpoint.
+- Its a location.
+- Its just a URL.
+- Is the location where the data can be found and where we can get it from a particular external service.
+
+Why JSON
+-----------------
+
+- It's flat, easy and with simple structure.
+- Standard way of transferring data across internet.
+
+API Request
+-----------------
