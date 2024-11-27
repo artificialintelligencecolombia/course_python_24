@@ -1,0 +1,108 @@
+==============================
+SELENIUM WEBDRIVER OPTIONS
+==============================
+
+---------------------
+Fundamentals
+---------------------
+WebDriver options set the preferences for the webdriver session -> managing cookies, setting usr agents, disable browser features, etc.
+
+
+´´´
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+# Set Chrome options
+options = Options()
+
+# 1. Add user-agent string
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36")
+
+# 2. Disable bot detection mechanisms
+options.add_argument("--disable-blink-features=AutomationControlled")
+
+# 3. Start Chrome with configured options
+driver = webdriver.Chrome(options=options)
+
+# Open a webpage
+driver.get("https://www.example.com")
+
+´´´
+
+
+Anti Bot Evasion Key Options
+----------------
+
+1. Add user-agent string: user agent to mimic a normal browser to bypass basic bot detection.
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36")
+
+
+2. Disable bot detection mechanisms: disable the flag for a browser being controlled by automation.
+options.add_argument("--disable-blink-features=AutomationControlled")
+
+3. Run in headless mode (for faster and non-GUI based execution): some websites may block headless browsers, even if this feature can speed up the excution. Test with and without this.
+options.add_argument("--headless")
+
+4. Incognito mode for privacy: prevent cokies and tracking mechanisms
+options.add_argument("--incognito")
+
+5. FINAL (Clear cookies before loading a website
+driver.delete_all_cookies()
+driver.get(url)
+
+
+---------------------
+User Agents
+---------------------
+
+- Its str -> sent by the browser to the web server with every request.
+- It provides details about the browser, os and device. Servers use it to determine how to render a page and to detect bots.
+
+
+Why User Agents
+----------------
+
+- Websites block requests that appear to come from bots.
+- Some websites serve different content based on the user agent (mobile, desktop, chrome, firefox).
+
+
+Randomized User Agents
+----------------
+
+Rotate multiple realistic user agents simulates different user environments. This prevents the requests to being flagged as repetitive bot traffic.
+
+´´´
+import random
+
+# List of popular user agents (Chrome, Firefox, Safari, Edge)
+user_agents = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.110 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59'
+]
+
+# Randomly select a user agent
+chosen_user_agent = random.choice(user_agents)
+
+# Use this user agent in your requests or Selenium browser options
+print(chosen_user_agent)
+
+´´´
+
+
+NOTE: To find up-to-date user agents, visit.
+UserAgents.io
+WhatIsMyBrowser.com
+
+
+---------------------
+END OF DOCUMENT
+---------------------
+
+
+
+
+
+
+

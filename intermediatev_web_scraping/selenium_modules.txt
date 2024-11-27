@@ -1,0 +1,61 @@
+==============================
+SELENIUM MODULES
+==============================
+
+---------------------
+Fundamentals
+---------------------
+
+Main imports for a web scraper:
+
+´´´
+from selenium import webdriver #1
+from selenium.webdriver.chrome.options import Options #2
+from selenium.webdriver.support.ui import WebDriverWait #3
+from selenium.webdriver.common.by import By #4
+from selenium.webdriver.support import expected_conditions as EC #5
+from selenium.common.exceptions import TimeoutException #6
+from selenium.webdriver.common.keys import Keys #7
+import time #8
+import random #9
+
+´´´
+
+#1 Primary module. Allows us to control de browser (clicking, typing, etc).
+
+#2 Provides configurations for launching the browser.
+
+#3 used to implement explicit waits. -> it will wait until a condition is met (element appearing).
+
+#4 provides methods to locate an element (By.ID, By.CLASS_NAME, By.XPATH).
+
+#5 ptrdefinied conditions to wait. (element to be clickable, visibility of an element).
+
+#6 handles scenarios where selenium times out while waiting for an element. 
+
+#7 Provide keys for simulating keyboard actions (enter, control, supr).
+
+#8 add delays/pauses in the scripts.
+
+#9 generate random numbers. -> mimic human behavior in delays.
+
+
+Anti Bot Evasion Key Options
+----------------
+
+1. Add user-agent string: user agent to mimic a normal browser to bypass basic bot detection.
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36")
+
+
+
+
+---------------------
+END OF DOCUMENT
+---------------------
+
+
+
+
+
+
+
