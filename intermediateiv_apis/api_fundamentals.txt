@@ -6,10 +6,16 @@ API
 Fundamentals
 ---------------------
 
-Set of commands, functions, protocols and objects that programmers use to create software of interact with an external system.
+Set of commands, functions, protocols and objects that programmers use to create software or interact with an external system.
+
+Analogy
+-----------------
+
+You    -----> Menu --> Restaurant kitchen
 
 Our     ----> API ---> External (websites)
 Program                System 
+
 
 python --->  API     ---> website (pull data)
 ----------  REQUEST  -------->
@@ -24,11 +30,14 @@ Endpoint
 - Its just a URL.
 - Is the location where the data can be found and where we can get it from a particular external service.
 
+Note: to check the endpoint, we can just copy the url and aste it in the browser, getting as result the data from the website.
+
 Why JSON
 -----------------
 
 - It's flat, easy and with simple structure.
 - Standard way of transferring data across internet.
+- It's similar to a python dictionary.
 
 API Request
 -----------------

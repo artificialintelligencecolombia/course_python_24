@@ -1,0 +1,13 @@
+==============================
+MAIL SERVICE
+==============================
+
+---------------------
+Process
+---------------------
+
+Sender      ->    Gmail Server ->  Yahoo Mail Server ->  Receiver
+dan@gmaio.com                                            tim@yahoo.com
+
+1) SMTP handles the email, take it through the servers and deliver it to the Receiver computer.
+2) SMTP allows us to send any email to any address on the internet.

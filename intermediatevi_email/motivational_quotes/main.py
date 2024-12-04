@@ -79,12 +79,11 @@ def main():
     cleaned_quotes = get_quotes(quotes_file)
     day = get_date()
     
-    if day == 3:
+    if day == 4:
         daily_quote = pick_quote(cleaned_quotes)
         send_email(email, to_email, password, daily_quote)
     else:
         print("Not time to send the email.")
-
 
 if __name__ == "__main__":
     main()    
