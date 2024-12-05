@@ -30,7 +30,7 @@ Endpoint
 - Its just a URL.
 - Is the location where the data can be found and where we can get it from a particular external service.
 
-Note: to check the endpoint, we can just copy the url and aste it in the browser, getting as result the data from the website.
+Note: to check the endpoint, we can just copy the url and paste it in the browser, getting as result the data from the website's API.
 
 Why JSON
 -----------------
@@ -38,6 +38,3 @@ Why JSON
 - It's flat, easy and with simple structure.
 - Standard way of transferring data across internet.
 - It's similar to a python dictionary.
-
-API Request
------------------
